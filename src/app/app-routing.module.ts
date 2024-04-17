@@ -8,6 +8,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { ScannerComponent } from './scanner/scanner.component';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { LectureComponent } from './lecture-details/lecture.component';
+import { LecturesComponent } from './my-lectures/lectures.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,11 +21,14 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'scanner', component: ScannerComponent },
+  { path: 'lectures', component: LecturesComponent },
+  { path: 'lectures/:lectureId', component: LectureComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), NgxScannerQrcodeModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

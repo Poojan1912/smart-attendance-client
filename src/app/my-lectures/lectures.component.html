@@ -1,0 +1,8 @@
+<div *ngIf="lectures$ | async as lectures">
+  <ul>
+    <li *ngFor="let item of lectures; index as i">
+      {{ item.name }} - {{ item.date }} -
+      <a [routerLink]="['/lectures', item._id]">view</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="lectureDetails$ | async as lectureDetails">
+  <h1>{{ lectureDetails.name }}</h1>
+  <h2>{{ lectureDetails.date }}</h2>
+
+  <qrcode
+    [qrdata]="lectureDetails._id"
+    [width]="256"
+    [errorCorrectionLevel]="'M'"
+  ></qrcode>
+</div>
