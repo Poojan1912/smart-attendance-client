@@ -57,4 +57,13 @@ export class UserService {
       responseType: 'json',
     });
   }
+
+  generateQR(data: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'teachers/generate-qr', data, {
+      headers: {
+        token: this.storageService.getUser().token
+      },
+      responseType: 'json'
+    })
+  }
 }

@@ -1,8 +1,32 @@
-<div *ngIf="lectures$ | async as lectures">
-  <ul>
-    <li *ngFor="let item of lectures; index as i">
-      {{ item.name }} - {{ item.date }} -
-      <a [routerLink]="['/lectures', item._id]">view</a>
-    </li>
-  </ul>
+<div class="mt-5 container w-50" *ngIf="lectures$ | async as lectures">
+  <h3>Lectures</h3>
+  <p class="font-italic">{{role == "Teacher" ?   'Lectures taken by you' : 'Lectures you have attended'}}</p>
+
+  @if(lectures.length > 0) {
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Lecture Name</th>
+        <th>Lecture Date</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of lectures; index as i">
+        <td>{{ item.name }}</td>
+        <td>{{ item.date | date }}</td>
+        <td>
+          <button [routerLink]="['/lectures', item._id]"
+            class="btn btn-primary">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  } @else {
+  <div class="card">
+    <div class="card-body">
+      <p class="font-italic mb-0">{{role == "Teacher" ?   'No Lectures found.' : 'You have not attended any lectures.'}}</p>
+    </div>
+  </div>
+  }
 </div>

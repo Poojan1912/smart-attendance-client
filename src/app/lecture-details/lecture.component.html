@@ -1,10 +1,21 @@
-<div *ngIf="lectureDetails$ | async as lectureDetails">
-  <h1>{{ lectureDetails.name }}</h1>
-  <h2>{{ lectureDetails.date }}</h2>
+<div class="mt-5 container w-50"
+  *ngIf="lectureDetails$ | async as lectureDetails">
+  <h3>Lecture Details</h3>
 
-  <qrcode
-    [qrdata]="lectureDetails._id"
-    [width]="256"
-    [errorCorrectionLevel]="'M'"
-  ></qrcode>
+  <div class="card my-5">
+    <div class="card-header">
+      <h5>{{ lectureDetails.name }}</h5>
+    </div>
+
+    <div class="card-body">
+      <qrcode
+        [qrdata]="lectureDetails._id"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"></qrcode>
+        <small class="pl-4">Scan & Add Lecture Attendance</small>
+      <h5 class="pl-5 pt-5">{{ lectureDetails.date | date }}</h5>
+    </div>
+  </div>
+
+  <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
 </div>

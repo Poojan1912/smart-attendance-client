@@ -1,0 +1,20 @@
+<form class="mt-5 container w-50" [formGroup]="generateQRForm"
+(ngSubmit)="onSubmit()">
+<h3>Generate QR</h3>
+    <div class="mb-2">
+        <label for="name" class="form-label">Lecture Name</label>
+        <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            id="name"
+            placeholder="Maths Lecture" />
+    </div>
+
+    <div class="mb-3">
+        <label for="date" class="form-label">Lecture Date</label>
+        <input type="date" formControlName="date" class="form-control"
+            id="date" />
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

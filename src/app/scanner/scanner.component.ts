@@ -34,7 +34,7 @@ export class ScannerComponent implements OnInit {
 
       this.userService.attendLecture(value).subscribe((data) => {
         if (data?.ok) {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/lectures');
         }
       });
     }

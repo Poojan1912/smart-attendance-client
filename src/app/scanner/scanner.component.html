@@ -1,5 +1,5 @@
 @if (currentUser) {
-<h1>scanner</h1>
+<h3 class="mt-5">Scan the QR to add your attendance </h3>
 
 <ngx-scanner-qrcode
   #action="scanner"
@@ -7,18 +7,15 @@
   (event)="eventCaptured($event)"
 ></ngx-scanner-qrcode>
 
-<!-- data  -->
-<span>{{ action.data.value | json }}</span
-><!-- value -->
-<span>{{ action.data | async | json }}</span
-><!-- async -->
+<span>{{ action.data.value | json }}</span>
+<span>{{ action.data | async | json }}</span>
 
 <!-- Loading -->
-<p *ngIf="action.isLoading">⌛ Loading...</p>
+<p class="mx-4" *ngIf="action.isLoading">⌛ Loading...</p>
 
 <!-- start -->
-<button (click)="action.isStart ? action.stop() : action.start()">
-  {{ action.isStart ? "Stop" : "Start" }}
+<button class="ml-4 btn btn-primary" (click)="action.isStart ? action.stop() : action.start()">
+  {{ action.isStart ? "Stop" : "Scan" }}
 </button>
 } @else {
 <p>Please login.</p>

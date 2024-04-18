@@ -15,6 +15,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { LOAD_WASM, NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { RouterModule } from '@angular/router';
 
 LOAD_WASM().subscribe();
 
@@ -33,6 +34,7 @@ LOAD_WASM().subscribe();
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     HttpClientModule,
     NgxScannerQrcodeModule,
   ],

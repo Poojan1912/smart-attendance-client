@@ -12,6 +12,7 @@ import { ScannerComponent } from './scanner/scanner.component';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { LectureComponent } from './lecture-details/lecture.component';
 import { LecturesComponent } from './my-lectures/lectures.component';
+import { GenerateQRComponent } from './generate-qr/generate-qr.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,7 +25,9 @@ const routes: Routes = [
   { path: 'scanner', component: ScannerComponent },
   { path: 'lectures', component: LecturesComponent },
   { path: 'lectures/:lectureId', component: LectureComponent },
+  { path: 'generate-qr', component: GenerateQRComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
 ];
 
 @NgModule({
